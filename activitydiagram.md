@@ -20,6 +20,7 @@ flowchart TD
     %% Dashboard Activities %%
     L --> M{User role}
     M -- Student --> N[View reports and search]
+    M -- Student --> AA[Open chat interface] 
     M -- Staff --> O[View and escalate reports]
     M -- Admin --> P[Monitor all reports and chat]
 
@@ -41,7 +42,6 @@ flowchart TD
     Y --> Z[MessageService retrieves messages]
 
     %% Messaging %%
-    N --> AA[Open chat interface]
     AA --> AB[Send message via MessageService]
     AB --> AC[MessageRepository saves message]
     AC --> AD{Receiver online?}
@@ -57,7 +57,8 @@ flowchart TD
     %% Logout / Session End %%
     L --> AJ[User clicks logout]
     AJ --> AK[Destroy session object]
-    AK --> A
+    AK --> AZ[Process End]
+
 
     %% Optional loops %%
     AE --> L

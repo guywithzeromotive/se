@@ -325,4 +325,3 @@ ReportStatus: PENDING, ACCEPTED, REJECTED, ESCALATED
 | JS scripts      | 3     |
 | DB tables       | 5–7   |
 | Enums           | 3     |
-
