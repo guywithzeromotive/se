@@ -3,7 +3,7 @@
 ```mermaid
 flowchart TD
     %% Login Process %%
-    A[Start] --> B[User opens login page]
+    A(((Start))) --> B[User opens login page]
     B --> C[Enter username and password]
     C --> D{Is input valid?}
     D -- No --> E[Show validation error]
@@ -57,7 +57,7 @@ flowchart TD
     %% Logout / Session End %%
     L --> AJ[User clicks logout]
     AJ --> AK[Destroy session object]
-    AK --> AZ[Process End]
+    AK --> AZ(((Process End)))
 
 
     %% Optional loops %%
