@@ -4,7 +4,7 @@
 flowchart TD
     %% Login Process %%
     A[Start] --> B[User opens login page]
-    B --> C[Enter username & password]
+    B --> C[Enter username and password]
     C --> D{Is input valid?}
     D -- No --> E[Show validation error]
     E --> B
@@ -14,19 +14,19 @@ flowchart TD
     H -- No --> I[Return error response]
     I --> B
     H -- Yes --> J[Create Session object]
-    J --> K[Return success + user data]
+    J --> K[Return success and user data]
     K --> L[ui.js renders dashboard based on role]
 
     %% Dashboard Activities %%
     L --> M{User role}
-    M -- Student --> N[View reports & search]
-    M -- Staff --> O[View & escalate reports]
-    M -- Admin --> P[Monitor all reports & chat]
+    M -- Student --> N[View reports and search]
+    M -- Staff --> O[View and escalate reports]
+    M -- Admin --> P[Monitor all reports and chat]
 
     %% Report Creation %%
-    N --> Q[Click "Create Report"]
+    N --> Q[Click Create Report]
     Q --> R[Fill report details]
-    R --> S[Submit via main.js → route.js → ReportService]
+    R --> S[Submit via main.js -> route.js -> ReportService]
     S --> T[ReportRepository saves report]
     T --> U[Return confirmation]
     U --> L
@@ -49,7 +49,7 @@ flowchart TD
     AD -- No --> AF[Cache message in MessageCache]
 
     %% XP Handling %%
-    T --> AG{Is report "found"?}
+    T --> AG{Is report found?}
     AG -- Yes --> AH[XPService.awardXP(user, points)]
     AH --> AI[Update XP table]
     AG -- No --> AI
