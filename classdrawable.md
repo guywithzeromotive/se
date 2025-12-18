@@ -29,10 +29,11 @@ classDiagram
         - type: String
         - title: String
         - description: String
+        - location: String
         - status: String
         - createdAt: DateTime
         - ownerId: String
-        + getSummary(): String
+        + getSummary() String
     }
 
     %% Message %%
@@ -63,51 +64,51 @@ classDiagram
         + resetXP(): void
     }
 
-    %% Services %%
-    class AuthService {
+    %% Handlers %%
+    class AuthHandler {
         + login(username, password): Session
         + logout(sessionId): void
         + resetPassword(admin, userId): String
     }
 
-    class ReportService {
+    class ReportHandler {
         + createReport(user, data): Report
         + updateStatus(admin, reportId, status): void
         + searchReports(criteria): List~Report~
         + escalateReport(staff, reportId): void
     }
 
-    class MessageService {
+    class MessageHandler {
         + sendMessage(sender, receiver, content): Message
         + getMessages(user): List~Message~
         + monitorChat(admin): List~Message~
     }
 
-    class XPService {
+    class XPHandler {
         + awardXP(user, points): void
         + getLeaderboard(): List~User~
         + getUserXP(user): int
     }
 
-    %% Repositories %%
-    class UserRepository {
+    %% DBController %%
+    class UserDBController {
         + findById(id): User
         + findByUsername(username): User
         + save(user): void
     }
 
-    class ReportRepository {
+    class ReportDBController {
         + findById(id): Report
         + findByCriteria(criteria): List~Report~
         + save(report): void
     }
 
-    class MessageRepository {
+    class MessageDBController {
         + findByUser(user): List~Message~
         + save(message): void
     }
 
-    class XPRepository {
+    class XPDBController {
         + findByUser(user): List~XP~
         + save(xp): void
     }
