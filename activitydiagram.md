@@ -26,7 +26,7 @@ flowchart TD
     %% Report Creation %%
     N --> Q[Click Create Report]
     Q --> R[Fill report details]
-    R --> S[Submit via main.js -> route.js -> ReportService]
+    R --> S[Submit via main.js to route.js to ReportService]
     S --> T[ReportRepository saves report]
     T --> U[Return confirmation]
     U --> L
@@ -35,7 +35,7 @@ flowchart TD
     O --> V[Select report to escalate]
     V --> W[EscalateReport via ReportService]
     W --> T
-    P --> X[Update report status (accept/reject)]
+    P --> X[Update report status accept or reject]
     X --> T
     P --> Y[Monitor chat messages]
     Y --> Z[MessageService retrieves messages]
@@ -50,7 +50,7 @@ flowchart TD
 
     %% XP Handling %%
     T --> AG{Is report found?}
-    AG -- Yes --> AH[XPService.awardXP(user, points)]
+    AG -- Yes --> AH[XPService awardXP to user]
     AH --> AI[Update XP table]
     AG -- No --> AI
 
