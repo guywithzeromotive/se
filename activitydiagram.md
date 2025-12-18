@@ -57,7 +57,7 @@ flowchart TD
     %% Logout / Session End %%
     L --> AJ[User clicks logout]
     AJ --> AK[Destroy session object]
-    AK --> AZ(((Process End)))
+    AK --> AZ(((End)))
 
 
     %% Optional loops %%
