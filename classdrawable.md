@@ -59,64 +59,64 @@ classDiagram
         - userId: String
         - academicYear: int
         - xpPoints: int
-        + getXP(): int
-        + addXP(points: int): void
-        + resetXP(): void
+        + getXP() int
+        + addXP(points: int) void
+        + resetXP() void
     }
 
     %% Handlers %%
     class AuthHandler {
-        + login(username, password): Session
-        + logout(sessionId): void
-        + resetPassword(admin, userId): String
+        + login(username, password) Session
+        + logout(sessionId) void
+        + resetPassword(admin, userId) String
     }
 
     class ReportHandler {
-        + createReport(user, data): Report
-        + updateStatus(admin, reportId, status): void
-        + searchReports(criteria): List~Report~
-        + escalateReport(staff, reportId): void
+        + createReport(user, data) Report
+        + updateStatus(admin, reportId, status) void
+        + searchReports(criteria) List~Report~
+        + escalateReport(staff, reportId) void
     }
 
     class MessageHandler {
-        + sendMessage(sender, receiver, content): Message
-        + getMessages(user): List~Message~
-        + monitorChat(admin): List~Message~
+        + sendMessage(sender, receiver, content) Message
+        + getMessages(user) List~Message~
+        + monitorChat(admin) List~Message~
     }
 
     class XPHandler {
-        + awardXP(user, points): void
-        + getLeaderboard(): List~User~
-        + getUserXP(user): int
+        + awardXP(user, points) void
+        + getLeaderboard() List~User~
+        + getUserXP(user) int
     }
 
     %% DBController %%
     class UserDBController {
-        + findById(id): User
-        + findByUsername(username): User
-        + save(user): void
+        + findById(id) User
+        + findByUsername(username) User
+        + save(user) void
     }
 
     class ReportDBController {
-        + findById(id): Report
-        + findByCriteria(criteria): List~Report~
-        + save(report): void
+        + findById(id) Report
+        + findByCriteria(criteria) List~Report~
+        + save(report) void
     }
 
     class MessageDBController {
-        + findByUser(user): List~Message~
-        + save(message): void
+        + findByUser(user) List~Message~
+        + save(message) void
     }
 
     class XPDBController {
-        + findByUser(user): List~XP~
-        + save(xp): void
+        + findByUser(user) List~XP~
+        + save(xp) void
     }
 
     %% Utilities %%
     class CryptoUtil {
-        + hash(password): String
-        + verify(password, hash): boolean
+        + hash(password) String
+        + verify(password, hash) boolean
     }
 
     class Validator {
